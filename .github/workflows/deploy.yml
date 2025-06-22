@@ -1,0 +1,49 @@
+name: Deploy Next.js site to mittwald prod
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "deploy-prod"
+  cancel-in-progress: true
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/next-app
+          docker build -t $IMAGE_NAME:latest .
+
+      - name: Push Docker image
+        run: |
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/next-app
+          docker push $IMAGE_NAME:latest
+
+#      # Trigger the deployment on Mittwald via api: https://developer.mittwald.de/docs/v2/reference/container/container-pull-image-for-service/
+#      - name: Trigger image pull and container recreation
+#        run: |
+#          curl -X POST "https://api.mittwald.de/v2/stacks/657ed2ad-84f3-4fb3-a5ac-d81da410e90c/services/806d1806-be61-42b9-87be-acc530098edb/actions/pull/" -H "Authorization: Bearer ${{ secrets.MITTWALD_API_TOKEN }}"
