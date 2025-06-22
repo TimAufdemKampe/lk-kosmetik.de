@@ -7,7 +7,6 @@ import {
   IconAt,
   IconBrandInstagram,
   IconClock,
-  IconMenu,
   IconPhone,
 } from '@tabler/icons-react';
 import { Container } from '@/components/Container';
@@ -19,10 +18,21 @@ import { MobileNavOffCanvas } from '@/components/MobileNavOffCanvas';
 export const Header: React.FC = () => {
   const pathname = usePathname();
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
     const handleScroll = () => {
       const navElement = document.querySelector('.header-container .absolute');
       if (navElement) {
@@ -30,17 +40,16 @@ export const Header: React.FC = () => {
         setIsHeaderVisible(navRect.top > 0);
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <>
-      {!isHeaderVisible && <StickyNav />}
+      {(isMobile || !isHeaderVisible) && <StickyNav />}
       <MobileNavOffCanvas
         open={mobileNavOpen}
         onClose={() => setMobileNavOpen(false)}
@@ -94,15 +103,8 @@ export const Header: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className='absolute top-[180px] left-1/2 z-[999] flex h-[50px] w-full max-w-[600px] -translate-x-1/2 transform items-center rounded-md bg-white p-2 shadow-md sm:w-[calc(100%-200px)]'>
-          <div
-            className='flex w-full cursor-pointer items-center justify-between sm:hidden'
-            onClick={() => setMobileNavOpen(true)}
-          >
-            <span>Menü</span>
-            <IconMenu className='text-gray-500' />
-          </div>
-          <div className='hidden w-full items-center justify-between sm:flex'>
+        <div className='absolute top-[180px] left-1/2 z-[999] hidden h-[50px] w-full max-w-[600px] -translate-x-1/2 transform items-center rounded-md bg-white p-2 shadow-md sm:flex sm:w-[calc(100%-200px)]'>
+          <div className='flex w-full items-center justify-between'>
             <nav className='flex items-center gap-4'>
               <Link
                 href='/'
