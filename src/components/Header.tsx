@@ -22,20 +22,23 @@ export const Header: React.FC = () => {
 
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
 
+  const memorizedHandleScroll = React.useCallback(() => {
+    const navElement = document.querySelector('.header-container .absolute');
+    if (navElement) {
+      const navRect = navElement.getBoundingClientRect();
+      setIsHeaderVisible(navRect.top > 0);
+    }
+  }, []);
+
   useEffect(() => {
-    const handleScroll = () => {
-      const navElement = document.querySelector('.header-container');
-      if (navElement) {
-        const navRect = navElement.getBoundingClientRect();
-        setIsHeaderVisible(navRect.top > 0);
-      }
-    };
+    const handleScroll = memorizedHandleScroll;
 
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
