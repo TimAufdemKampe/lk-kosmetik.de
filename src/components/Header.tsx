@@ -22,24 +22,36 @@ export const Header: React.FC = () => {
 
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
 
-  const memorizedHandleScroll = React.useCallback(() => {
-    const navElement = document.querySelector('.header-container .absolute');
-    if (navElement) {
-      const navRect = navElement.getBoundingClientRect();
-      setIsHeaderVisible(navRect.top > 0);
-    }
-  }, []);
+  // Debounce Funktion
+  function debounce<T extends (...args: never[]) => void>(
+    func: T,
+    wait: number
+  ) {
+    let timeout: ReturnType<typeof setTimeout>;
+    return (...args: Parameters<T>) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func(...args), wait);
+    };
+  }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const memorizedHandleScroll = React.useCallback(
+    debounce(() => {
+      // Schwelle für das Einblenden von StickyNav (z.B. 50px)
+      const scrollY = window.scrollY || window.pageYOffset;
+      setIsHeaderVisible(scrollY < 200);
+    }, 100),
+    []
+  );
 
   useEffect(() => {
     const handleScroll = memorizedHandleScroll;
-
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [memorizedHandleScroll]);
 
   return (
     <>
