@@ -35,12 +35,12 @@ jobs:
 
       - name: Build Docker image
         run: |
-          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/next-app
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/lk-kosmetik-next-app
           docker build -t $IMAGE_NAME:latest .
 
       - name: Push Docker image
         run: |
-          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/next-app
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/lk-kosmetik-next-app
           docker push $IMAGE_NAME:latest
 
 #      # Trigger the deployment on Mittwald via api: https://developer.mittwald.de/docs/v2/reference/container/container-pull-image-for-service/
