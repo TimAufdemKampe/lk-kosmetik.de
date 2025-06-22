@@ -64,7 +64,7 @@ export const HeroSection: React.FC = () => {
               style={{ overflow: 'hidden' }}
               src={Person}
               height={400}
-              width={340}
+              width={280}
             />
           </div>
         </div>
