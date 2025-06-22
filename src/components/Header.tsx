@@ -24,7 +24,7 @@ export const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const navElement = document.querySelector('.header-container');
+      const navElement = document.querySelector('.header-container .absolute');
       if (navElement) {
         const navRect = navElement.getBoundingClientRect();
         setIsHeaderVisible(navRect.top > 0);
