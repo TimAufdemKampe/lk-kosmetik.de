@@ -20,6 +20,7 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/next.config.ts ./
 COPY --from=builder /app/src/markdownContent ./src/markdownContent
 COPY --from=builder /app/package.json ./
+COPY --from=builder /app/src/app/favicon.ico ./src/app/favicon.ico
 
 # Port
 EXPOSE 3000
