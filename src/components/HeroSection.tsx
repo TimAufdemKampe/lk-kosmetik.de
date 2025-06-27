@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { RoleSwitcher } from '@/components/RoleSwitcher';
 import Image from 'next/image';
 import Person from '../../public/person.png';
+import Link from 'next/link';
 
 export const HeroSection: React.FC = () => {
   return (
@@ -22,9 +23,11 @@ export const HeroSection: React.FC = () => {
             möchtest, fühl dich wie Zuhause.
           </span>
 
-          <Button className='mt-4 inline-block rounded bg-[#bb9167] px-6 text-sm font-medium text-white transition hover:bg-[#a87b54]'>
-            Termin vereinbaren
-          </Button>
+          <Link href="/termin-buchen" className='w-full sm:w-auto'>
+            <Button className='mt-4 inline-block rounded bg-[#bb9167] px-6 text-sm font-medium text-white transition hover:bg-[#a87b54]'>
+              Termin vereinbaren
+            </Button>
+          </Link>
         </div>
         <div className='hidden h-full flex-1/3 md:relative'>
           <div className='absolute flex h-full min-w-[280px]'>

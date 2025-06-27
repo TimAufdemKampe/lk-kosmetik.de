@@ -127,3 +127,21 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.custom-checkbox-white-check:checked::before {
+  /* Safari/Chrome: überschreibt den Haken auf weiß */
+  border-color: white !important;
+  background: white !important;
+  /* Für bessere Sichtbarkeit ggf. noch: */
+  box-shadow: 0 0 0 1.5px #bb9167;
+}
+
+/* Firefox: Haken weiß machen */
+.custom-checkbox-white-check:checked {
+  --tw-accent-color: #bb9167;
+  accent-color: #bb9167;
+}
+.custom-checkbox-white-check:checked:after {
+  /* Versucht, den Haken weiß zu machen */
+  border-color: white !important;
+}
