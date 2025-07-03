@@ -58,7 +58,9 @@ export const Header: React.FC = () => {
       <Container className='header-container relative'>
         <div className='bg-background'>
           <div className='container mx-auto flex items-center justify-between'>
-            <Image src={Logo} width={200} height={200} alt='Logo' />
+            <Link href='/'>
+              <Image src={Logo} width={200} height={200} alt='Logo' />
+            </Link>
 
             <div className='hidden items-center space-x-4 sm:flex'>
               <div className='flex flex-row items-center gap-3'>

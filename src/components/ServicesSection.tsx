@@ -13,6 +13,7 @@ import {
   NAILS_ITEMS,
   PERMANENT_MAKE_UP_ITEMS,
 } from '@/app/services/services-items';
+import { BookTreatmentButton } from '@/components/BookTreatmentButton';
 
 const services = [
   {
@@ -48,7 +49,7 @@ const services = [
     items: CIRCADIA_TREATMENTS_ITEMS,
   },
   {
-    title: 'Permanent Make-up',
+    title: 'Permanent Make Up',
     image: PermanentMakeupImage,
     alt: 'Permanent Make-up',
     desc: 'Augenbrauen, Lippen, Lidstrich – langanhaltende Schönheit.',
@@ -99,12 +100,16 @@ export const ServicesSection: React.FC = () => {
                   <div className='mb-2 text-sm text-neutral-500'>
                     ab {prices.low}€ - {prices.high}€
                   </div>
-                  <a
-                    href={service.link}
-                    className='mt-2 rounded bg-[#bb9167] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#a87b54]'
-                  >
-                    Details
-                  </a>
+                  <div className='mt-2 flex flex-row gap-2'>
+                    <a
+                      href={service.link}
+                      className='rounded bg-neutral-200 px-4 py-2 text-sm font-medium text-neutral-900 transition hover:bg-neutral-300'
+                    >
+                      Details
+                    </a>
+
+                    <BookTreatmentButton initialCategories={[service.title]} />
+                  </div>
                 </div>
               </div>
             );

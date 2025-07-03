@@ -1,11 +1,13 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { IconBrandInstagram, IconMenu2 } from '@tabler/icons-react';
-import { Button } from '@/components/ui/button';
 import Logo from '../../public/logo.png';
 import Image from 'next/image';
 import { MobileNavOffCanvas } from '@/components/MobileNavOffCanvas';
+import { BookTreatmentButton } from '@/components/BookTreatmentButton';
 
 const StickyNav: React.FC = () => {
   const pathname = usePathname();
@@ -41,7 +43,6 @@ const StickyNav: React.FC = () => {
         className={`bg-background sticky top-0 z-[1100] sm:bg-white ${showMobileLogo ? 'shadow-md' : ''}`}
       >
         <div className='container mx-auto flex h-[64px] items-center justify-between rounded-md p-2'>
-          {/* Logo: auf Desktop immer, auf Mobile nur wenn >200px gescrollt */}
           <div
             className={`transition-all duration-300 ${showMobileLogo ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'} md:translate-x-0 md:opacity-100`}
             style={{ minWidth: 48 }}
@@ -96,12 +97,7 @@ const StickyNav: React.FC = () => {
             </Link>
           </nav>
           <div className='hidden flex-row items-center gap-4 md:flex'>
-            <Button
-              size='sm'
-              className='inline-block rounded bg-[#bb9167] px-6 text-sm font-medium text-white transition hover:bg-[#a87b54]'
-            >
-              Termin vereinbaren
-            </Button>
+            <BookTreatmentButton size='sm' />
             <Link
               target='_blank'
               href='https://www.instagram.com/lk.kosmetik_/'
@@ -111,12 +107,7 @@ const StickyNav: React.FC = () => {
             </Link>
           </div>
           <div className='flex items-center justify-center gap-4 md:hidden'>
-            <Button
-              size='sm'
-              className='inline-block rounded bg-[#bb9167] px-4 text-sm font-medium text-white transition hover:bg-[#a87b54]'
-            >
-              Termin vereinbaren
-            </Button>
+            <BookTreatmentButton size='sm' />
 
             <IconMenu2
               size={32}

@@ -16,7 +16,7 @@ export const SERVICE_CATEGORIES = [
     items: LASHES_ITEMS,
   },
   {
-    kategorie: 'Brows',
+    kategorie: 'Augenbrauen',
     items: BROWS_ITEMS,
   },
   {
@@ -37,13 +37,12 @@ export const WEEKDAYS = [
   'Freitag',
 ];
 
-// Öffnungszeiten pro Tag
 export const OPENING_HOURS: Record<string, { start: string; end: string }> = {
-  Montag:    { start: '08:30', end: '19:00' },
-  Dienstag:  { start: '08:30', end: '19:00' },
-  Mittwoch:  { start: '08:30', end: '19:00' },
-  Donnerstag:{ start: '08:30', end: '11:00' },
-  Freitag:   { start: '08:30', end: '16:30' },
+  Montag: { start: '08:30', end: '19:00' },
+  Dienstag: { start: '08:30', end: '19:00' },
+  Mittwoch: { start: '08:30', end: '19:00' },
+  Donnerstag: { start: '08:30', end: '11:00' },
+  Freitag: { start: '08:30', end: '16:30' },
 };
 
 export const WIZARD_STEPS_BASE = [

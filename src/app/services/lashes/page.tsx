@@ -8,6 +8,7 @@ import { LASHES_ITEMS } from '@/app/services/services-items';
 export default function LashesPage() {
   return (
     <ServicePageContent
+      categoryName='Wimpern'
       description='Bei LK-Kosmetik bieten wir professionelle Wimpernbehandlungen und -verlängerungen an. Hier findest du eine Übersicht über unser Angebot und die aktuellen Preise.'
       priceTableTitle='Wimpern'
       priceTableItems={LASHES_ITEMS}

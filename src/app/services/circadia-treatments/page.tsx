@@ -5,6 +5,7 @@ import { CIRCADIA_TREATMENTS_ITEMS } from '@/app/services/services-items';
 export default function CircadiaTreatmentsPage() {
   return (
     <ServicePageContent
+      categoryName='Circadia Treatments'
       description='Circadia Treatments bieten innovative und individuell abgestimmte Behandlungen für verschiedene Hauttypen und -bedürfnisse. Hier findest du eine Übersicht über die angebotenen Behandlungen und Preise.'
       priceTableTitle='Circadia Treatments'
       priceTableItems={CIRCADIA_TREATMENTS_ITEMS}

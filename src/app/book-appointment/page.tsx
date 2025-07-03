@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useBookingWizard } from './hooks/useBookingWizard';
 import { StepIndicator } from './components/StepIndicator';
 import { CategorySelection } from './components/CategorySelection';
@@ -9,8 +9,13 @@ import { TimeSelection } from './components/TimeSelection';
 import { CustomerInfoForm } from './components/CustomerInfoForm';
 import { BookingOverview } from './components/BookingOverview';
 import { BookingSidebar } from './components/BookingSidebar';
+import { BookingSuccess } from './components/BookingSuccess';
+import { useSearchParams } from 'next/navigation';
 
 export default function TerminBuchenPage() {
+  const searchParams = useSearchParams();
+  const initialCategories = searchParams.get('categories')?.split(',') || [];
+
   const {
     step,
     selectedCategories,
@@ -22,6 +27,8 @@ export default function TerminBuchenPage() {
     wizardSteps,
     timeErrors,
     hasTimeError,
+    isSuccess,
+    submittedAt,
     setTimes,
     setCustomerInfo,
     setCustomerInfoErrors,
@@ -30,26 +37,51 @@ export default function TerminBuchenPage() {
     handleAddonChange,
     getSelectedAddonsForService,
     handleStepChange,
+    handleBookingSuccess,
   } = useBookingWizard();
 
+  useEffect(() => {
+    if (initialCategories.length > 0) {
+      initialCategories.forEach((category) => {
+        if (!selectedCategories.includes(category)) {
+          handleCategoryChange(category);
+        }
+      });
+    }
+  }, [initialCategories]);
+
+  if (isSuccess && submittedAt) {
+    return (
+      <div className='mx-auto mt-12 mb-6 max-w-2xl p-4'>
+        <BookingSuccess
+          customerName={customerInfo.name}
+          customerEmail={customerInfo.email}
+          submittedAt={submittedAt}
+        />
+      </div>
+    );
+  }
+
   return (
-    <div className='mx-auto max-w-5xl mt-12 mb-6 p-4'>
-      <div className={`flex flex-col md:flex-row gap-8`}>  
-        <div className={`flex-1 flex flex-col gap-8 min-w-[340px] ${step === selectedCategories.length + 3 ? 'max-w-full' : 'max-w-[600px]'}`}>  
+    <div className='mx-auto mt-12 mb-6 max-w-5xl min-w-full p-4 sm:min-w-xl'>
+      <div className={`flex flex-col gap-8 md:flex-row`}>
+        <div
+          className={`flex min-w-[340px] flex-1 flex-col gap-8 ${step === selectedCategories.length + 3 ? 'max-w-full' : 'max-w-[600px]'}`}
+        >
           <StepIndicator
             wizardSteps={wizardSteps}
             currentStep={step}
             selectedCategories={selectedCategories}
             onStepClick={handleStepChange}
           />
-          
+
           {step === 0 && (
             <CategorySelection
               selectedCategories={selectedCategories}
               onCategoryChange={handleCategoryChange}
             />
           )}
-          
+
           {step > 0 && step <= selectedCategories.length && (
             <ServiceSelection
               category={selectedCategories[step - 1]}
@@ -59,7 +91,7 @@ export default function TerminBuchenPage() {
               getSelectedAddonsForService={getSelectedAddonsForService}
             />
           )}
-          
+
           {step === selectedCategories.length + 1 && (
             <TimeSelection
               times={times}
@@ -68,7 +100,7 @@ export default function TerminBuchenPage() {
               hasTimeError={hasTimeError}
             />
           )}
-          
+
           {step === selectedCategories.length + 2 && (
             <CustomerInfoForm
               customerInfo={customerInfo}
@@ -77,21 +109,23 @@ export default function TerminBuchenPage() {
               onCustomerInfoErrorsChange={setCustomerInfoErrors}
             />
           )}
-          
+
           {step === selectedCategories.length + 3 && (
             <BookingOverview
               customerInfo={customerInfo}
               times={times}
               selectedServices={selectedServices}
               selectedAddons={selectedAddons}
-              onBackClick={() => handleStepChange(selectedCategories.length + 2)}
+              onBackClick={() =>
+                handleStepChange(selectedCategories.length + 2)
+              }
+              onBookingSuccess={handleBookingSuccess}
             />
           )}
         </div>
-        
-        {/* Sidebar sticky, Buttons in Sidebar, aber nicht im letzten Schritt */}
+
         {step !== selectedCategories.length + 3 && (
-          <div className='w-full md:w-80 flex flex-col gap-4 z-30'>
+          <div className='z-30 flex w-full flex-col gap-4 md:w-80'>
             <BookingSidebar
               selectedServices={selectedServices}
               selectedAddons={selectedAddons}
@@ -101,7 +135,10 @@ export default function TerminBuchenPage() {
               times={times}
               hasTimeError={hasTimeError}
               customerInfo={customerInfo}
-              onStepChange={handleStepChange}
+              onStepChange={(newStep) => {
+                handleStepChange(newStep);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
             />
           </div>
         )}

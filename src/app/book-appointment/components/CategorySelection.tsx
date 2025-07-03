@@ -12,20 +12,21 @@ export const CategorySelection: React.FC<CategorySelectionProps> = ({
   onCategoryChange,
 }) => {
   return (
-    <div className='flex flex-col gap-4'>
+    <div className='flex max-w-full flex-col gap-4'>
       <label className='mb-1 block font-medium'>Kategorien wählen:</label>
-      <div className='flex flex-wrap gap-2 mb-2'>
+      <div className='mb-2 flex flex-wrap gap-2'>
         {SERVICE_CATEGORIES.map((k) => (
           <label
             key={k.kategorie}
-            className={`flex items-center gap-2 border rounded px-3 py-2 cursor-pointer transition-colors duration-150
-              ${selectedCategories.includes(k.kategorie) ? 'border-[#bb9167] bg-[#f7f2ee]' : 'border-neutral-200 bg-white hover:bg-neutral-50'}`}
+            className={`flex cursor-pointer items-center gap-2 rounded border px-3 py-2 transition-colors duration-150 ${selectedCategories.includes(k.kategorie) ? 'border-[#bb9167] bg-[#f7f2ee]' : 'border-neutral-200 bg-white hover:bg-neutral-50'}`}
           >
             <CustomCheckbox
               checked={selectedCategories.includes(k.kategorie)}
               onChange={() => onCategoryChange(k.kategorie)}
             />
-            <span className='font-medium text-base select-none'>{k.kategorie}</span>
+            <span className='text-base font-medium select-none'>
+              {k.kategorie}
+            </span>
           </label>
         ))}
       </div>

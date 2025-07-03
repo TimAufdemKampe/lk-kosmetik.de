@@ -9,7 +9,7 @@ export default async function ImprintPage() {
   const markdownHtml = await getHtmlFromMarkdown(content);
 
   return (
-    <Container withMarginTop withMarginBottom className='mx-0 w-[800px]'>
+    <Container withMarginTop withMarginBottom className='mx-0 max-w-[800px]'>
       <div
         className='text-foreground prose mx-4 max-w-full'
         suppressHydrationWarning

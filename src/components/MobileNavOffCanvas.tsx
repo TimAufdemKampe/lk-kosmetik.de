@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { IconX } from '@tabler/icons-react';
@@ -64,9 +66,11 @@ export const MobileNavOffCanvas: React.FC<MobileNavProps> = ({
             Instagram
           </Link>
 
-          <Button className='mt-4 inline-block rounded bg-[#bb9167] px-6 text-sm font-medium text-white transition hover:bg-[#a87b54]'>
-            Termin vereinbaren
-          </Button>
+          <Link href='/book-appointment' onClick={onClose}>
+            <Button className='mt-4 inline-block rounded bg-[#bb9167] px-6 text-sm font-medium text-white transition hover:bg-[#a87b54]'>
+              Termin vereinbaren
+            </Button>
+          </Link>
         </nav>
       </div>
     </div>

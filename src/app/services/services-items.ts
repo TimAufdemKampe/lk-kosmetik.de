@@ -7,23 +7,39 @@ export type PriceItem = {
   duration?: {
     display: string;
     averageInMinutes: number;
-  }
+  };
   additionalPrices?: {
     name: string;
     price: string;
     duration?: {
       display: string;
       averageInMinutes: number;
-    }
+    };
   }[];
 };
 export type PriceItems = PriceItem[];
 
 export const BROWS_ITEMS: PriceItems = [
-  { name: 'Augenbrauenlifting inkl. Färben & Pflege', price: '55€', duration: {display: "45 Min. - 1 Std.", averageInMinutes: 55 } },
-  { name: 'Augenbrauen zupfen', price: '15€', duration: {display: "15 Min.", averageInMinutes: 15} },
-  { name: 'Augenbrauen färben', price: '10€', duration: {display: "15 Min.", averageInMinutes: 15} },
-  { name: 'Kombipreis (Zupfen + Färben)', price: '23€', duration: {display: "30 Min.", averageInMinutes: 30} },
+  {
+    name: 'Augenbrauenlifting inkl. Färben & Pflege',
+    price: '55€',
+    duration: { display: '45 Min. - 1 Std.', averageInMinutes: 55 },
+  },
+  {
+    name: 'Augenbrauen zupfen',
+    price: '15€',
+    duration: { display: '15 Min.', averageInMinutes: 15 },
+  },
+  {
+    name: 'Augenbrauen färben',
+    price: '10€',
+    duration: { display: '15 Min.', averageInMinutes: 15 },
+  },
+  {
+    name: 'Kombipreis (Zupfen + Färben)',
+    price: '23€',
+    duration: { display: '30 Min.', averageInMinutes: 30 },
+  },
 ];
 
 export const CIRCADIA_TREATMENTS_ITEMS: PriceItems = [
@@ -34,7 +50,7 @@ export const CIRCADIA_TREATMENTS_ITEMS: PriceItems = [
     additionalDescription: 'Reinigung, Peeling, Pflege',
     price: '80€',
     duration: {
-      display: "1 Std.",
+      display: '1 Std.',
       averageInMinutes: 60,
     },
     additionalPrices: [
@@ -42,9 +58,9 @@ export const CIRCADIA_TREATMENTS_ITEMS: PriceItems = [
         name: '+ Coldhammer',
         price: '90€',
         duration: {
-          display: "1 Std. 30 Min.",
+          display: '1 Std. 30 Min.',
           averageInMinutes: 90,
-        }
+        },
       },
     ],
   },
@@ -54,9 +70,9 @@ export const CIRCADIA_TREATMENTS_ITEMS: PriceItems = [
     additionalDescription: 'Reinigung, Pflege',
     price: '55€',
     duration: {
-      display: "45 Min.",
+      display: '45 Min.',
       averageInMinutes: 45,
-    }
+    },
   },
   {
     name: 'Basis Behandlung',
@@ -64,7 +80,7 @@ export const CIRCADIA_TREATMENTS_ITEMS: PriceItems = [
     additionalDescription: 'Reinigung, Maske, Serum, Pflege',
     price: '99€',
     duration: {
-      display: "1 Std. - 1 Std. 30 Min.",
+      display: '1 Std. - 1 Std. 30 Min.',
       averageInMinutes: 75,
     },
     additionalPrices: [
@@ -72,7 +88,7 @@ export const CIRCADIA_TREATMENTS_ITEMS: PriceItems = [
         name: '+ Enzympeeling',
         price: '114€',
         duration: {
-          display: "1 Std. - 1 Std. 30 Min.",
+          display: '1 Std. - 1 Std. 30 Min.',
           averageInMinutes: 75,
         },
       },
@@ -85,7 +101,7 @@ export const CIRCADIA_TREATMENTS_ITEMS: PriceItems = [
     additionalDescription: 'Reinigung, Oxygen Maske, Seren, Pflege',
     price: '130€',
     duration: {
-      display: "1 Std. 30 Min. - 2 Std.",
+      display: '1 Std. 30 Min. - 2 Std.',
       averageInMinutes: 105,
     },
     additionalPrices: [
@@ -93,7 +109,7 @@ export const CIRCADIA_TREATMENTS_ITEMS: PriceItems = [
         name: '+ Enzympeeling',
         price: '155€',
         duration: {
-          display: "1 Std. 30 Min. - 2 Std.",
+          display: '1 Std. 30 Min. - 2 Std.',
           averageInMinutes: 105,
         },
       },
@@ -106,7 +122,7 @@ export const CIRCADIA_TREATMENTS_ITEMS: PriceItems = [
     additionalDescription: 'Reinigung, Masken, Seren, Pflege',
     price: '130€',
     duration: {
-      display: "1 Std. 30 Min. - 2 Std.",
+      display: '1 Std. 30 Min. - 2 Std.',
       averageInMinutes: 105,
     },
     additionalPrices: [
@@ -114,7 +130,7 @@ export const CIRCADIA_TREATMENTS_ITEMS: PriceItems = [
         name: '+ Enzympeeling',
         price: '155€',
         duration: {
-          display: "1 Std. 30 Min. - 2 Std.",
+          display: '1 Std. 30 Min. - 2 Std.',
           averageInMinutes: 105,
         },
       },
@@ -128,7 +144,7 @@ export const CIRCADIA_TREATMENTS_ITEMS: PriceItems = [
       'Reinigung, Switch Treatment, Seren, Pflege inkl. Produkte für die Nachbehandlung',
     price: '169€',
     duration: {
-      display: "1 Std. 30 Min. - 2 Std.",
+      display: '1 Std. 30 Min. - 2 Std.',
       averageInMinutes: 105,
     },
   },
@@ -138,91 +154,102 @@ export const LASHES_ITEMS: PriceItems = [
   {
     name: 'Wimpernlifting',
     price: '55€',
-    duration: { display: "45 Min. - 1 Std.", averageInMinutes: 55 },
+    duration: { display: '45 Min. - 1 Std.', averageInMinutes: 55 },
     additionalPrices: [
       {
         name: 'inkl. Farben & Pflege',
         price: '60€',
-        duration: {display: "1 Std.", averageInMinutes: 60},
+        duration: { display: '1 Std.', averageInMinutes: 60 },
       },
     ],
   },
-  { name: 'Wimpern färben', price: '10€', duration: { display: "15 Min.", averageInMinutes: 15 } },
+  {
+    name: 'Wimpern färben',
+    price: '10€',
+    duration: { display: '15 Min.', averageInMinutes: 15 },
+  },
   {
     name: 'Wimpernverlängerung 1:1',
     description: 'Erstbehandlung',
     price: '90€',
-    duration: { display: "2 Std.", averageInMinutes: 120 },
+    duration: { display: '2 Std.', averageInMinutes: 120 },
   },
   {
     name: 'Wimpernverlängerung 1:1',
     description: 'Auffüllen bis 2 Wochen',
     price: '45€',
-    duration: { display: "30 Min. - 1 Std.", averageInMinutes: 45 },
+    duration: { display: '30 Min. - 1 Std.', averageInMinutes: 45 },
   },
   {
     name: 'Wimpernverlängerung 1:1',
     description: 'Auffüllen bis 3 Wochen',
     price: '50€',
-    duration: { display: "30 Min. - 1 Std.", averageInMinutes: 45 },
-    
+    duration: { display: '30 Min. - 1 Std.', averageInMinutes: 45 },
   },
   {
     name: 'Wimpernverlängerung 1:1',
     description: 'Auffüllen bis 4 Wochen',
     price: '60€',
-    duration: { display: "30 Min. - 1 Std.", averageInMinutes: 45 },
+    duration: { display: '30 Min. - 1 Std.', averageInMinutes: 45 },
   },
   {
     name: 'Wimpernverlängerung Light Volume/Mix',
     description: 'Erstbehandlung',
     price: '110€',
-    duration: { display: "2 Std. - 2 Std. 30 Min.", averageInMinutes: 135 },
+    duration: { display: '2 Std. - 2 Std. 30 Min.', averageInMinutes: 135 },
   },
   {
     name: 'Wimpernverlängerung Light Volume/Mix',
     description: 'Auffüllen bis 2 Wochen',
     price: '50€',
-    duration: { display: "1 Std. - 1 Std. 30 Min.", averageInMinutes: 75 },
+    duration: { display: '1 Std. - 1 Std. 30 Min.', averageInMinutes: 75 },
   },
   {
     name: 'Wimpernverlängerung Light Volume/Mix',
     description: 'Auffüllen bis 3 Wochen',
     price: '55€',
-    duration: { display: "1 Std. - 1 Std. 30 Min.", averageInMinutes: 75 },
+    duration: { display: '1 Std. - 1 Std. 30 Min.', averageInMinutes: 75 },
   },
   {
     name: 'Wimpernverlängerung Light Volume/Mix',
     description: 'Auffüllen bis 4 Wochen',
     price: '65€',
-    duration: { display: "1 Std. - 1 Std. 30 Min.", averageInMinutes: 75 },
+    duration: { display: '1 Std. - 1 Std. 30 Min.', averageInMinutes: 75 },
   },
   {
     name: 'Wimpernverlängerung Volume',
     description: 'Erstbehandlung',
     price: '130€',
-    duration: { display: "2 Std. - 2 Std. 30 Min.", averageInMinutes: 135 },
+    duration: { display: '2 Std. - 2 Std. 30 Min.', averageInMinutes: 135 },
   },
   {
     name: 'Wimpernverlängerung Volume',
     description: 'Auffüllen bis 2 Wochen',
     price: '55€',
-    duration: { display: "1 Std. - 1 Std. 30 Min.", averageInMinutes: 75 },
+    duration: { display: '1 Std. - 1 Std. 30 Min.', averageInMinutes: 75 },
   },
   {
     name: 'Wimpernverlängerung Volume',
     description: 'Auffüllen bis 3 Wochen',
     price: '60€',
-    duration: { display: "1 Std. - 1 Std. 30 Min.", averageInMinutes: 75 },
+    duration: { display: '1 Std. - 1 Std. 30 Min.', averageInMinutes: 75 },
   },
   {
     name: 'Wimpernverlängerung Volume',
     description: 'Auffüllen bis 4 Wochen',
     price: '70€',
-    duration: { display: "1 Std. - 1 Std. 30 Min.", averageInMinutes: 75 },
+    duration: { display: '1 Std. - 1 Std. 30 Min.', averageInMinutes: 75 },
   },
-  { name: 'Mini Fresh Up', price: 'ab 20€', duration: { display: "30 Min.", averageInMinutes: 30 } },
-  { name: 'Wimpernverlängerung entfernen', price: '20€', duration: { display: "30 Min.", averageInMinutes: 30 } },
+  {
+    name: 'Mini Fresh Up',
+    price: 'ab 20€',
+    duration: { display: '30 Min.', averageInMinutes: 30 },
+  },
+  {
+    name: 'Wimpernverlängerung entfernen',
+    price: '20€',
+    duration: { display: '30 Min.', averageInMinutes: 30 },
+  },
   {
     name: 'Hinweis',
     price: '',
@@ -231,15 +258,51 @@ export const LASHES_ITEMS: PriceItems = [
 ];
 
 export const NAILS_ITEMS: PriceItems = [
-  { name: 'Neumodellage Natur', price: '50€', duration: { display: "45 Min.", averageInMinutes: 45} },
-  { name: 'Neumodellage Natur + Verlängerung', price: '60€', duration: { display: "1 Std. 30 Min.", averageInMinutes: 90} },
-  { name: 'Neumodellage Farbe', price: '53€', duration: { display: "1 Std.", averageInMinutes: 60} },
-  { name: 'Neumodellage Farbe + Verlängerung', price: '63€', duration: { display: "1 Std. 30 Min.", averageInMinutes: 90} },
-  { name: 'Auffüllen', price: '43€', duration: { display: "45 Min.", averageInMinutes: 45} },
-  { name: 'Auffüllen + Farbe', price: '45€', duration: { display: "1 Std.", averageInMinutes: 60} },
-  { name: 'Shellac', price: '40€', duration: { display: "45 Min.", averageInMinutes: 45} },
-  { name: 'Shellac + Farbe', price: '45€', duration: { display: "1 Std.", averageInMinutes: 60} },
-  { name: 'Maniküre', price: '20€', duration: { display: "30 Min.", averageInMinutes: 30} },
+  {
+    name: 'Neumodellage Natur',
+    price: '50€',
+    duration: { display: '45 Min.', averageInMinutes: 45 },
+  },
+  {
+    name: 'Neumodellage Natur + Verlängerung',
+    price: '60€',
+    duration: { display: '1 Std. 30 Min.', averageInMinutes: 90 },
+  },
+  {
+    name: 'Neumodellage Farbe',
+    price: '53€',
+    duration: { display: '1 Std.', averageInMinutes: 60 },
+  },
+  {
+    name: 'Neumodellage Farbe + Verlängerung',
+    price: '63€',
+    duration: { display: '1 Std. 30 Min.', averageInMinutes: 90 },
+  },
+  {
+    name: 'Auffüllen',
+    price: '43€',
+    duration: { display: '45 Min.', averageInMinutes: 45 },
+  },
+  {
+    name: 'Auffüllen + Farbe',
+    price: '45€',
+    duration: { display: '1 Std.', averageInMinutes: 60 },
+  },
+  {
+    name: 'Shellac',
+    price: '40€',
+    duration: { display: '45 Min.', averageInMinutes: 45 },
+  },
+  {
+    name: 'Shellac + Farbe',
+    price: '45€',
+    duration: { display: '1 Std.', averageInMinutes: 60 },
+  },
+  {
+    name: 'Maniküre',
+    price: '20€',
+    duration: { display: '30 Min.', averageInMinutes: 30 },
+  },
   { name: 'Überlänge', price: '+ 20€' },
   { name: 'Design', price: 'ab 1€ pro Nagel' },
   { name: 'Babyboomer/French', price: '+ 5€' },
@@ -249,16 +312,16 @@ export const PERMANENT_MAKE_UP_ITEMS: PriceItems = [
   {
     name: 'Powderbrows',
     price: '300€',
-    duration: { display: "2 Std. - 3 Std.", averageInMinutes: 150 },
+    duration: { display: '2 Std. - 3 Std.', averageInMinutes: 150 },
   },
   {
     name: 'Nachbehandlung bis 2 Monate',
     price: '50€',
-    duration: { display: "1 Std.", averageInMinutes: 60 },
+    duration: { display: '1 Std.', averageInMinutes: 60 },
   },
   {
     name: 'Nachbehandlung nach 1 Jahr',
     price: '125€',
-    duration: { display: "1 Std.", averageInMinutes: 60 },
+    duration: { display: '1 Std.', averageInMinutes: 60 },
   },
 ];
