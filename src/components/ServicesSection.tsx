@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Image from 'next/image';
 import NailsImage from '@/../public/stock/pexels-designecologist-887352.jpg';
 import BrowsImage from '@/../public/stock/pexels-almadastudio-609549.jpg';
@@ -108,7 +108,11 @@ export const ServicesSection: React.FC = () => {
                       Details
                     </a>
 
-                    <BookTreatmentButton initialCategories={[service.title]} />
+                    <Suspense>
+                      <BookTreatmentButton
+                        initialCategories={[service.title]}
+                      />
+                    </Suspense>
                   </div>
                 </div>
               </div>

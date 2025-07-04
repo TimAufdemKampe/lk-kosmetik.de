@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { IconBrandInstagram, IconMenu2 } from '@tabler/icons-react';
@@ -97,7 +97,9 @@ const StickyNav: React.FC = () => {
             </Link>
           </nav>
           <div className='hidden flex-row items-center gap-4 md:flex'>
-            <BookTreatmentButton size='sm' />
+            <Suspense>
+              <BookTreatmentButton size='sm' />
+            </Suspense>
             <Link
               target='_blank'
               href='https://www.instagram.com/lk.kosmetik_/'
@@ -107,7 +109,9 @@ const StickyNav: React.FC = () => {
             </Link>
           </div>
           <div className='flex items-center justify-center gap-4 md:hidden'>
-            <BookTreatmentButton size='sm' />
+            <Suspense>
+              <BookTreatmentButton size='sm' />
+            </Suspense>
 
             <IconMenu2
               size={32}

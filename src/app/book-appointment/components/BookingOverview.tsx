@@ -68,7 +68,7 @@ export const BookingOverview: React.FC<BookingOverviewProps> = ({
         throw new Error(errorData.error || 'Fehler beim Versenden der E-Mails');
       }
 
-      const result = await response.json();
+      await response.json();
       setSubmitStatus('success');
       setSubmitMessage(
         'Ihre Terminanfrage wurde erfolgreich versendet! Wir melden uns bald bei Ihnen.'

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { AliceFont } from '@/components/Fonts';
 import { RoleSwitcher } from '@/components/RoleSwitcher';
 import Image from 'next/image';
@@ -22,7 +22,9 @@ export const HeroSection: React.FC = () => {
             möchtest, fühl dich wie Zuhause.
           </span>
 
-          <BookTreatmentButton />
+          <Suspense>
+            <BookTreatmentButton />
+          </Suspense>
         </div>
         <div className='hidden h-full flex-1/3 md:relative'>
           <div className='absolute flex h-full min-w-[280px]'>

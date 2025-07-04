@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { PriceTable } from '@/components/PriceTable';
 import Image, { StaticImageData } from 'next/image';
 import { PriceItems } from '@/app/services/services-items';
@@ -41,7 +41,9 @@ export const ServicePageContent: React.FC<Props> = (props) => {
           </p>
 
           <div className='mb-6'>
-            <BookTreatmentButton initialCategories={[categoryName]} />
+            <Suspense>
+              <BookTreatmentButton initialCategories={[categoryName]} />
+            </Suspense>
           </div>
 
           <PriceTable title={priceTableTitle} items={priceTableItems} />
