@@ -58,17 +58,38 @@ const services = [
   },
 ];
 
-export const ServicesSection: React.FC = () => {
+interface Props {
+  className?: string;
+  mode?: 'page' | 'landing';
+}
+
+export const ServicesSection: React.FC<Props> = (props) => {
+  const { mode = 'landing' } = props;
+
   return (
-    <section className='bg-background py-20'>
+    <section className={`bg-background py-10 ${props.className || ''}`}>
       <div className='mx-auto flex max-w-[1400px] flex-col items-center p-8 sm:px-20'>
-        <h2 className='mb-2 text-center text-2xl leading-tight font-semibold tracking-tight text-neutral-900'>
-          Leistungen
-        </h2>
-        <span className='mb-10 block max-w-xl text-center text-sm font-medium text-neutral-600'>
-          Für dich individuell abgestimmt – von klassischer Maniküre bis zu
-          modernen Treatments.
-        </span>
+        {mode === 'landing' ? (
+          <>
+            <h2 className='mb-2 text-center text-2xl leading-tight font-semibold tracking-tight text-neutral-900'>
+              Leistungen
+            </h2>
+            <span className='mb-10 block max-w-xl text-center text-sm text-neutral-600'>
+              Für dich individuell abgestimmt – von klassischer Maniküre bis zu
+              modernen Treatments.
+            </span>
+          </>
+        ) : (
+          <div className='mb-16 text-center'>
+            <h1 className='mb-4 text-4xl font-bold text-[#272521] sm:text-5xl'>
+              Leistungen
+            </h1>
+            <p className='text-lg text-neutral-600 sm:text-xl'>
+              Für dich individuell abgestimmt – von klassischer Maniküre bis zu
+              modernen Treatments.
+            </p>
+          </div>
+        )}
         <div className='grid w-full grid-cols-1 place-items-center gap-8 md:grid-cols-2'>
           {services.map((service, idx) => {
             const isLastOdd =

@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import WomanImage from '../../public/stock/pexels-roman-odintsov-10159282.jpg';
+import Link from 'next/link';
 
 export const AboutMeSection: React.FC = () => {
   return (
@@ -23,6 +24,12 @@ export const AboutMeSection: React.FC = () => {
             Bedürfnisse abgestimmt sind. Mein Ziel ist es, dir ein Gefühl von
             Entspannung und Schönheit zu vermitteln.
           </p>
+
+          <Link href='/about-me'>
+            <button className='mt-4 rounded-md bg-[#bb9167] px-4 py-1 text-white hover:bg-[#a87b5c]'>
+              Mehr erfahren
+            </button>
+          </Link>
         </div>
       </div>
     </div>
