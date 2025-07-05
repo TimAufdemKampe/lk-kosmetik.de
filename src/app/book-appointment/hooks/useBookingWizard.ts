@@ -35,14 +35,18 @@ export const useBookingWizard = () => {
   const [submittedAt, setSubmittedAt] = useState<Date | null>(null);
 
   const wizardSteps = [
-    WIZARD_STEPS_BASE[0],
+    WIZARD_STEPS_BASE[0], // 'Kategorien wählen'
     ...selectedCategories.map((cat) => `Leistungen wählen: ${cat}`),
-    'Verfügbare Zeiten',
-    'Deine Kontaktdaten',
-    'Anfrage prüfen & absenden',
+    WIZARD_STEPS_BASE[1], // 'Verfügbare Zeiten'
+    WIZARD_STEPS_BASE[2], // 'Deine Kontaktdaten'
+    WIZARD_STEPS_BASE[3], // 'Anfrage prüfen & absenden'
   ];
 
   const handleCategoryChange = (category: string) => {
+    if (category === '') {
+      return;
+    }
+
     setSelectedCategories((prev) =>
       prev.includes(category)
         ? prev.filter((c) => c !== category)

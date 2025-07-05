@@ -48,5 +48,6 @@ export const OPENING_HOURS: Record<string, { start: string; end: string }> = {
 export const WIZARD_STEPS_BASE = [
   'Kategorien wählen',
   'Verfügbare Zeiten',
+  'Deine Kontaktdaten',
   'Anfrage prüfen & absenden',
 ];

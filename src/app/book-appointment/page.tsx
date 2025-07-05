@@ -90,15 +90,19 @@ export default function TerminBuchenPage() {
                     />
                   )}
 
-                  {step > 0 && step <= selectedCategories.length && (
-                    <ServiceSelection
-                      category={selectedCategories[step - 1]}
-                      selectedServices={selectedServices}
-                      onServiceChange={handleServiceChange}
-                      onAddonChange={handleAddonChange}
-                      getSelectedAddonsForService={getSelectedAddonsForService}
-                    />
-                  )}
+                  {step > 0 &&
+                    step <= selectedCategories.length &&
+                    selectedCategories.length > 0 && (
+                      <ServiceSelection
+                        category={selectedCategories[step - 1]}
+                        selectedServices={selectedServices}
+                        onServiceChange={handleServiceChange}
+                        onAddonChange={handleAddonChange}
+                        getSelectedAddonsForService={
+                          getSelectedAddonsForService
+                        }
+                      />
+                    )}
 
                   {step === selectedCategories.length + 1 && (
                     <TimeSelection
