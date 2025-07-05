@@ -76,7 +76,7 @@ export default function AboutPage() {
           </div>
 
           {/* Additional Info Section */}
-          <div className='mt-16 rounded-2xl bg-[#f7f2ee] p-8 sm:p-12'>
+          <div className='mt-16 rounded-2xl border-2 bg-[#f7f2ee] p-8 sm:p-12'>
             <div className='grid gap-8 md:grid-cols-2'>
               <div>
                 <h3 className='mb-4 text-xl font-semibold text-[#272521]'>
