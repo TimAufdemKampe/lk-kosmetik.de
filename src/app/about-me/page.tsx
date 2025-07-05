@@ -129,8 +129,8 @@ export default function AboutPage() {
 
             <div className='mt-8 text-center'>
               <p className='text-neutral-600 italic'>
-                "Schönheit beginnt in dem Moment, in dem du dich entscheidest,
-                du selbst zu sein." - Coco Chanel
+                &quot;Schönheit beginnt in dem Moment, in dem du dich
+                entscheidest, du selbst zu sein.&quot; - Coco Chanel
               </p>
             </div>
           </div>
