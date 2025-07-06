@@ -6,8 +6,6 @@ import { BookingNotificationOwner } from '@/emails/BookingNotificationOwner';
 
 const FROM_EMAIL = process.env.FROM_EMAIL || 'noreply@lk-kosmetik.de';
 const OWNER_EMAIL = process.env.OWNER_EMAIL || '';
-const INTERNAL_ACCESS_TOKEN =
-  process.env.INTERNAL_ACCESS_TOKEN || 'your-secure-token-here';
 
 interface BookingData {
   customerInfo: {
@@ -29,23 +27,6 @@ interface BookingData {
 
 export async function POST(request: NextRequest) {
   try {
-    // Authorization check
-    const authHeader = request.headers.get('Authorization');
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return NextResponse.json(
-        { error: 'Authorization header fehlt' },
-        { status: 401 }
-      );
-    }
-
-    const token = authHeader.substring(7); // Remove 'Bearer ' prefix
-    if (token !== INTERNAL_ACCESS_TOKEN) {
-      return NextResponse.json(
-        { error: 'Ungültiger Access Token' },
-        { status: 401 }
-      );
-    }
-
     const bookingData: BookingData = await request.json();
 
     if (!bookingData.customerInfo?.email || !bookingData.customerInfo?.name) {

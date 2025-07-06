@@ -61,7 +61,6 @@ export const BookingOverview: React.FC<BookingOverviewProps> = ({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.INTERNAL_ACCESS_TOKEN || 'your-secure-token-here'}`,
         },
         body: JSON.stringify(bookingData),
       });
