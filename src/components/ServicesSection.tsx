@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react';
 import Image from 'next/image';
-import NailsImage from '@/../public/stock/pexels-designecologist-887352.jpg';
+import NailsImage from '@/../public/nails/8ad51d50-61f0-4937-ad4e-6a1fafbeec5e.jpeg';
 import BrowsImage from '@/../public/stock/pexels-almadastudio-609549.jpg';
-import LashesImage from '@/../public/stock/pexels-pixabay-63320.jpg';
-import CircadiaImage from '@/../public/stock/pexels-shiny-diamond-3373716.jpg';
+import LashesImage from '@/../public/lashes/11B15B23-DF67-4A17-A012-26A22D39190A.jpeg';
+import CircadiaImage from '@/../public/circadia-treatments/IMG_8915.jpeg';
 import PermanentMakeupImage from '@/../public/stock/460x321px-bilder-unten-quer-permanent-make-up.jpg';
 import { getPriceRange } from '@/app/services/getPriceRange';
 import {
