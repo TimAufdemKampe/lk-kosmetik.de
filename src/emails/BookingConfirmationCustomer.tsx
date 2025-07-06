@@ -38,7 +38,7 @@ export const BookingConfirmationCustomer = ({
   totalPrice,
   customerInfo,
 }: BookingConfirmationCustomerProps) => {
-  const previewText = `Terminanfrage erhalten - Wir melden uns bald bei Ihnen!`;
+  const previewText = `Terminanfrage erhalten - Wir melden uns bald bei dir!`;
 
   return (
     <Html>
@@ -57,7 +57,7 @@ export const BookingConfirmationCustomer = ({
           </Section>
 
           <Section style={content}>
-            <Heading style={h1}>Vielen Dank für Ihre Terminanfrage!</Heading>
+            <Heading style={h1}>Vielen Dank für deine Terminanfrage!</Heading>
 
             <Text style={text}>Liebe/r {customerName},</Text>
 

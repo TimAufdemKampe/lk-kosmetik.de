@@ -27,8 +27,6 @@ export function validateCustomerInfo(info: CustomerInfo): CustomerInfoErrors {
 
   if (!info.phone.trim()) {
     errors.phone = 'Bitte gib deine Telefonnummer ein.';
-  } else if (!/^[\d+\-()\s]{6,}$/.test(info.phone)) {
-    errors.phone = 'Bitte gib eine gültige Telefonnummer ein.';
   }
 
   return errors;
