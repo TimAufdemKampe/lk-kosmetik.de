@@ -6,6 +6,7 @@ import { BookingNotificationOwner } from '@/emails/BookingNotificationOwner';
 
 const FROM_EMAIL = process.env.FROM_EMAIL || 'noreply@lk-kosmetik.de';
 const OWNER_EMAIL = process.env.OWNER_EMAIL || '';
+const INTERNAL_API_KEY = process.env.INTERNAL_API_KEY || '';
 
 interface BookingData {
   customerInfo: {
@@ -27,6 +28,44 @@ interface BookingData {
 
 export async function POST(request: NextRequest) {
   try {
+    // Authentication - prüfe den API Key
+    const authHeader = request.headers.get('X-API-Key');
+    if (!authHeader || !INTERNAL_API_KEY) {
+      return NextResponse.json(
+        { error: 'Unauthorized - Missing API Key' },
+        { status: 401 }
+      );
+    }
+
+    if (authHeader !== INTERNAL_API_KEY) {
+      return NextResponse.json(
+        { error: 'Unauthorized - Invalid API Key' },
+        { status: 401 }
+      );
+    }
+
+    // Zusätzliche Sicherheit: Prüfe Origin/Referer
+    const origin = request.headers.get('origin');
+    const referer = request.headers.get('referer');
+    const allowedOrigins = [
+      'http://localhost:3000',
+      'https://lk-kosmetik.de',
+      'https://www.lk-kosmetik.de',
+    ];
+
+    if (!origin || !allowedOrigins.includes(origin)) {
+      // Fallback auf Referer-Check
+      if (
+        !referer ||
+        !allowedOrigins.some((allowed) => referer.startsWith(allowed))
+      ) {
+        return NextResponse.json(
+          { error: 'Unauthorized - Invalid Origin' },
+          { status: 403 }
+        );
+      }
+    }
+
     const bookingData: BookingData = await request.json();
 
     if (!bookingData.customerInfo?.email || !bookingData.customerInfo?.name) {

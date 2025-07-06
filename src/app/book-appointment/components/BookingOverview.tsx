@@ -38,6 +38,29 @@ export const BookingOverview: React.FC<BookingOverviewProps> = ({
     setSubmitStatus('idle');
 
     try {
+      // Schritt 1: Session-Token anfordern
+      const sessionResponse = await fetch('/api/get-api-key', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!sessionResponse.ok) {
+        throw new Error('Fehler beim Anfordern des Session-Tokens');
+      }
+
+      const { sessionToken } = await sessionResponse.json();
+
+      // Schritt 2: API-Key mit Session-Token abrufen
+      const apiKeyResponse = await fetch(
+        `/api/get-api-key?token=${sessionToken}`
+      );
+      if (!apiKeyResponse.ok) {
+        throw new Error('Fehler beim Abrufen des API-Keys');
+      }
+      const { apiKey } = await apiKeyResponse.json();
+
       const formattedServices = selectedServices.map((service) => {
         const serviceKey = getServiceKey(service);
         const addons = selectedAddons[serviceKey] || [];
@@ -61,6 +84,7 @@ export const BookingOverview: React.FC<BookingOverviewProps> = ({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'X-API-Key': apiKey,
         },
         body: JSON.stringify(bookingData),
       });
