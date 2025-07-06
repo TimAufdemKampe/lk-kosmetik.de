@@ -1,6 +1,12 @@
 import { ServicePageContent } from '@/components/ServicePageContent';
 import { BROWS_ITEMS } from '@/app/services/services-items';
 
+export const metadata = {
+  title: 'Augenbrauen',
+  description:
+    'Entdecke unsere professionellen Augenbrauenbehandlungen bei LK-Kosmetik. Von der Formung bis zum Permanent Make-Up bieten wir alles für perfekte Augenbrauen.',
+};
+
 export default function BrowsPage() {
   return (
     <ServicePageContent

@@ -3,6 +3,12 @@ import Image from 'next/image';
 import { Container } from '@/components/Container';
 import PersonImage from '../../../public/real-person.jpeg';
 
+export const metadata = {
+  title: 'Über mich',
+  description:
+    'Lerne die Gründerin von LK-Kosmetik kennen und erfahre mehr über ihre Leidenschaft für Schönheit und Wohlbefinden.',
+};
+
 export default function AboutPage() {
   return (
     <div className='min-h-screen px-8 py-12 sm:py-20'>

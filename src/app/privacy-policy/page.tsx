@@ -2,6 +2,17 @@ import path from 'path';
 import fs from 'fs';
 import { getHtmlFromMarkdown } from '@/lib/getHtmlFromMarkdown';
 import { Container } from '@/components/Container';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Datenschutzrichtlinie',
+  description:
+    'Erfahre mehr über unsere Datenschutzpraktiken und wie wir deine Daten schützen.',
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default async function PrivacyPolicyPage() {
   const filePath = path.join(

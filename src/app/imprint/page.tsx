@@ -2,6 +2,16 @@ import path from 'path';
 import fs from 'fs';
 import { getHtmlFromMarkdown } from '@/lib/getHtmlFromMarkdown';
 import { Container } from '@/components/Container';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Impressum',
+  description: 'Rechtliche Informationen und Kontaktangaben für LK-Kosmetik.',
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default async function ImprintPage() {
   const filePath = path.join(process.cwd(), './src/markdownContent/imprint.md');

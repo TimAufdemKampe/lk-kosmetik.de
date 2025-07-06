@@ -2,6 +2,12 @@ import { ServicePageContent } from '@/components/ServicePageContent';
 import CircadiaImage from '@/../public/circadia-treatments/IMG_8915.jpeg';
 import { CIRCADIA_TREATMENTS_ITEMS } from '@/app/services/services-items';
 
+export const metadata = {
+  title: 'Circadia Treatments',
+  description:
+    'Entdecke die innovativen Circadia Treatments bei LK-Kosmetik. Individuell abgestimmte Behandlungen für verschiedene Hauttypen und -bedürfnisse.',
+};
+
 export default function CircadiaTreatmentsPage() {
   return (
     <ServicePageContent

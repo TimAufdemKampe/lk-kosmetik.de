@@ -10,6 +10,12 @@ import React from 'react';
 import { ServicePageContent } from '@/components/ServicePageContent';
 import { NAILS_ITEMS } from '@/app/services/services-items';
 
+export const metadata = {
+  title: 'Nägel',
+  description:
+    'Entdecke unsere professionellen Nagelbehandlungen bei LK-Kosmetik. Von Maniküre über Nagelmodellage bis hin zu speziellen Pflegebehandlungen bieten wir alles für perfekte Nägel.',
+};
+
 export default function NailsPage() {
   return (
     <ServicePageContent

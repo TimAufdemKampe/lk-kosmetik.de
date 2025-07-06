@@ -5,6 +5,12 @@ import LashesImage3 from '@/../public/lashes/11B15B23-DF67-4A17-A012-26A22D39190
 import LashesImage4 from '@/../public/lashes/IMG_9004.jpeg';
 import { LASHES_ITEMS } from '@/app/services/services-items';
 
+export const metadata = {
+  title: 'Wimpern',
+  description:
+    'Entdecke unsere professionellen Wimpernbehandlungen bei LK-Kosmetik. Von der Wimpernverlängerung bis zu speziellen Pflegebehandlungen bieten wir alles für perfekte Wimpern.',
+};
+
 export default function LashesPage() {
   return (
     <ServicePageContent
