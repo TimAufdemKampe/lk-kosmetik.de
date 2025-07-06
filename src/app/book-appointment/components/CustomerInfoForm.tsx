@@ -102,20 +102,37 @@ export const CustomerInfoForm: React.FC<CustomerInfoFormProps> = ({
           >
             Bevorzugte Kontaktmethode
           </label>
-          <select
-            id='customer-contact-preference'
-            className='w-full rounded border border-neutral-300 px-3 py-2 text-base'
-            value={customerInfo.preferredContactMethod}
-            onChange={(e) =>
-              onCustomerInfoChange({
-                ...customerInfo,
-                preferredContactMethod: e.target.value as 'email' | 'phone',
-              })
-            }
-          >
-            <option value='email'>E-Mail</option>
-            <option value='phone'>Telefon</option>
-          </select>
+          <div className='relative'>
+            <select
+              id='customer-contact-preference'
+              className='w-full cursor-pointer appearance-none rounded border border-neutral-300 bg-white px-3 py-2 pr-10 text-base focus:border-transparent focus:ring-2 focus:ring-[#bb9167] focus:outline-none'
+              value={customerInfo.preferredContactMethod}
+              onChange={(e) =>
+                onCustomerInfoChange({
+                  ...customerInfo,
+                  preferredContactMethod: e.target.value as 'email' | 'phone',
+                })
+              }
+            >
+              <option value='email'>E-Mail</option>
+              <option value='phone'>Telefon</option>
+            </select>
+            <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3'>
+              <svg
+                className='h-5 w-5 text-[#bb9167]'
+                fill='none'
+                viewBox='0 0 20 20'
+                stroke='currentColor'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M19 9l-7 7-7-7'
+                />
+              </svg>
+            </div>
+          </div>
         </div>
         <div>
           <label

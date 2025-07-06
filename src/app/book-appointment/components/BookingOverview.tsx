@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { PriceItem } from '../../services/services-items';
 import { CustomerInfo } from '../misc/validation';
