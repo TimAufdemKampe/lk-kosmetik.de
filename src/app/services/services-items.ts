@@ -265,27 +265,27 @@ export const NAILS_ITEMS: PriceItems = [
   },
   {
     name: 'Neumodellage Natur + Verlängerung',
-    price: '60€',
+    price: '55€',
     duration: { display: '1 Std. 30 Min.', averageInMinutes: 90 },
   },
   {
     name: 'Neumodellage Farbe',
-    price: '53€',
+    price: '55€',
     duration: { display: '1 Std.', averageInMinutes: 60 },
   },
   {
     name: 'Neumodellage Farbe + Verlängerung',
-    price: '63€',
+    price: '60€',
     duration: { display: '1 Std. 30 Min.', averageInMinutes: 90 },
   },
   {
     name: 'Auffüllen',
-    price: '43€',
+    price: '45€',
     duration: { display: '45 Min.', averageInMinutes: 45 },
   },
   {
     name: 'Auffüllen + Farbe',
-    price: '45€',
+    price: '50€',
     duration: { display: '1 Std.', averageInMinutes: 60 },
   },
   {
